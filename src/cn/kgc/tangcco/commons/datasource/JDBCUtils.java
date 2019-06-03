@@ -63,6 +63,24 @@ public class JDBCUtils {
 		return conn;
 	}
 	
-	
-	
+	//开启事务
+	public static void starTransaction() throws SQLException {
+		Connection conn = getConnection();
+		conn.setAutoCommit(false);
+		conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+	}
+	//提交事务
+	public static void commit() throws SQLException {
+		Connection  conn = getConnection();
+		if (conn != null) {
+			conn.commit();
+		}
+	}
+	//回滚事务
+	public static void rollBack() throws SQLException {
+		Connection conn = getConnection();
+		if (conn != null) {
+			conn.rollback();
+		}
+	}
 }

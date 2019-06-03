@@ -4,7 +4,9 @@ import lombok.Getter;
 
 public enum ContextUtils {
 
-	USER("userDao","userService");
+	USER("userDao","userService"),
+	GRADE("gradeDao","gradeService"),
+	STUDENT("studentDao","studentService");
 	
 	private ContextUtils(String dao,String service) {
 		this.dao = dao;
